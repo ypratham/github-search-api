@@ -57,16 +57,17 @@ body {
     background: transparent;
     outline: none;
     border: none;
-    width: 100%;
+    width: 300px;
     color: white;
     font-family: Consolas;
     font-size: 16px;
-    margin-left: 20px;
+    margin-left: 10px;
 }
 .main .container form input[type="button"] {
     background: var(--buttonBackgroundColor);
     color: white;
     padding: 10px 15px;
+    margin-left: auto;
     border: none;
     font-family: Consolas;
     letter-spacing: 2.5%;
