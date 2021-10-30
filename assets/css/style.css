@@ -26,11 +26,11 @@ body {
 }
 
 .main {
-    width: 30vw;
+    width: max-content;
 }
 
 .main .container{
-    width: fit-content;
+    width: max-content;
 }
 
 .main .container {
