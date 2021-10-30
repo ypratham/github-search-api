@@ -1,0 +1,184 @@
+
+
+:root{
+    --primaryBackgroundColor: #141C2F;
+    --secondaryBackgroundColor: #1F2A48;
+    --buttonBackgroundColor: #0278FC;
+    --primaryTextColor: #8F95A9;
+    --primaryLinkColor: #2C8EFF;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    transition: all 200ms ease;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    background-color: var(--primaryBackgroundColor);
+    font-family: "Consolas";
+    
+
+}
+
+.main {
+    width: 30vw;
+}
+
+.main .container{
+    width: fit-content;
+}
+
+.main .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.main .container form {
+    background-color: var(--secondaryBackgroundColor);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    border-radius: 10px;
+}
+
+.main .container form img {
+    justify-self: flex-start;
+}
+
+.main .container form input[type="text"]{
+    background: transparent;
+    outline: none;
+    border: none;
+    width: 100%;
+    color: white;
+    font-family: Consolas;
+    font-size: 16px;
+    margin-left: 20px;
+}
+.main .container form input[type="button"] {
+    background: var(--buttonBackgroundColor);
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    font-family: Consolas;
+    letter-spacing: 2.5%;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius:8px ;
+}
+
+.main .result {
+    background: var(--secondaryBackgroundColor);
+    padding: 25px;
+    margin-top: 20px;
+    border-radius: 10px;
+    width: 100%;
+    display: grid;
+    grid-template-areas: 
+    "img userName joinedDate"
+    "img userBio  userBio"
+    "img userProfileInfo userProfileInfo"
+    "img userLink userLink";
+
+    grid-template-columns: max-content auto 1fr;
+    grid-template-rows: max-content max-content 1fr auto;
+
+    grid-gap: 20px;
+
+    color: #E0E7F2;
+}
+
+.main .result .userIcon{
+    grid-area: img;
+}
+
+.main .result .userIcon img {
+    border-radius: 100%;
+    width: 100px;
+}
+
+.main .result .userName {
+    grid-area: userName;
+    justify-self: start;
+
+    font-family: Consolas;
+    font-weight: normal;
+}
+
+.main .result .userName a {
+    color: var(--primaryLinkColor);
+    text-decoration: none;
+}
+
+.main .result .userBio {
+    width: 50%;
+    grid-area: userBio;
+    color: var(--primaryTextColor);
+}
+
+.main .result .userJoinedDate{
+    grid-area: joinedDate;
+    justify-self: end;
+
+    color: var(--primaryTextColor);
+}
+
+.main .result .userProfileInfo{
+    grid-area: userProfileInfo;
+    background: var(--primaryBackgroundColor);
+    display: flex;
+    padding: 20px;
+    border-radius: 7px;
+    align-items: center;
+    font-size: 1.3rem;
+}
+
+.main .result .userProfileInfo .userFollowers {
+    margin: auto 80px;
+}
+
+.main .result .userProfileInfo p:nth-child(1){
+    font-size: 1rem;
+    color: var(--primaryTextColor);
+    margin-bottom: 4px;
+}
+
+
+.main .result .userLinks{
+    grid-area: userLink;
+    display: grid;
+    grid-template-areas: 
+    "link address"
+    "otherLink school";
+    grid-template-columns: repeat(2, 1fr );
+    grid-template-rows: repeat(2, 1fr );
+    color: var(--primaryTextColor);
+}
+.main .result .userLinks a{
+    text-decoration: none;
+    color: var(--primaryTextColor);
+}
+
+.main .result .userLinks div .svg {
+    margin: 10px;
+    display: grid;
+    place-items: center;
+}
+
+.main .result .userLinks .display{
+    display: flex;
+    align-items: center;
+}
+
+.main .result .userLinks .userPortfolioLink {
+    grid-area: link;
+    
+}
