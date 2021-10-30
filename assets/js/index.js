@@ -49,14 +49,17 @@ const fetchFunction = () => {
             const date = created_at.slice(0, 10);
             console.log(date);
 
-            blogLink = blog !== null ? blog : "Not available";
+            login = login !== null ? login : "Not available"
+            bio = bio !== null ? bio : "Not available"
+            location = location !== null ? location : "Not available"
+            blog = blog !== null ? blog : "Not available";
             company = company !== null ? company : "Not available";
             twitter_username = twitter_username !== null ? twitter_username : "Not available";
 
             const newDate = new Date(date).toDateString();
 
-            resultArea.innerHTML = `<div class="userIcon">\
-                    <img src="${avatar_url}" id="userImage" alt="profile-img" >\
+            resultArea.innerHTML = `<div class="userIcon ">\
+                    <img src="${avatar_url}" id="userImage" class="skeleton"  alt="" >\
             </div >\
             <div class="userName">\
                 <h2 id="userName">${name}</h2>\

@@ -89,7 +89,7 @@ body {
     "img userProfileInfo userProfileInfo"
     "img userLink userLink";
 
-    grid-template-columns: max-content auto 1fr;
+    grid-template-columns: max-content min-content 400px;
     grid-template-rows: max-content max-content 1fr auto;
 
     grid-gap: 20px;
@@ -102,6 +102,25 @@ body {
 }
 
 .main .result .userIcon img {
+    width: 100px;
+    height: 100px;
+}
+
+.main .result .skeleton {
+    animation: skeleton-loading 1s linear infinite alternate;
+}
+
+@keyframes skeleton-loading {
+    0%{
+        background-color: hsl(200, 20%, 70%);
+    }
+    100% {
+        background-color: hsl(200, 20%, 95%);
+    }
+    
+}
+
+.main .result .userIcon img {
     border-radius: 100%;
     width: 100px;
 }
@@ -109,7 +128,7 @@ body {
 .main .result .userName {
     grid-area: userName;
     justify-self: start;
-
+    width: max-content;
     font-family: Consolas;
     font-weight: normal;
 }
@@ -120,7 +139,8 @@ body {
 }
 
 .main .result .userBio {
-    width: 50%;
+    width: 100%;
+    word-wrap:break-word;
     grid-area: userBio;
     color: var(--primaryTextColor);
 }
@@ -139,11 +159,8 @@ body {
     padding: 20px;
     border-radius: 7px;
     align-items: center;
+    justify-content: space-evenly;
     font-size: 1.3rem;
-}
-
-.main .result .userProfileInfo .userFollowers {
-    margin: auto 80px;
 }
 
 .main .result .userProfileInfo p:nth-child(1){
