@@ -2,6 +2,31 @@ const input = document.getElementById("searchQuery");
 const button = document.getElementById("searchButton");
 const resultArea = document.getElementById("searchResult");
 const githubForm = document.getElementById("githubUserSearch");
+const bodyTag = document.getElementById("body")
+const themeChangeButton = document.getElementById("themeChange");
+
+const darkText = document.getElementById("darkMode")
+const lightText = document.getElementById("lightMode")
+
+var isLight = false
+
+
+
+themeChangeButton.onclick = () => {
+    if (isLight) {
+        bodyTag.classList.replace("dark", "light")
+        darkText.style.opacity = "30%"
+        lightText.style.opacity = "100%"
+
+        isLight = !isLight;
+    } else {
+        bodyTag.classList.replace("light", "dark")
+        lightText.style.opacity = "30%"
+        darkText.style.opacity = "100%"
+
+        isLight = !isLight;
+    }
+}
 
 const inputTypeChanged = false;
 

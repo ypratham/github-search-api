@@ -1,11 +1,34 @@
 
 
 :root{
-    --primaryBackgroundColor: #141C2F;
-    --secondaryBackgroundColor: #1F2A48;
+    --primaryBackgroundColorDark: #141C2F;
+    --secondaryBackgroundColorDark: #1F2A48;
     --buttonBackgroundColor: #0278FC;
-    --primaryTextColor: #8F95A9;
-    --primaryLinkColor: #2C8EFF;
+    --mainTextColorDark: #FFFFFF;
+    --primaryTextColorDark: #8F95A9;
+    --primaryLinkColorDark: #2C8EFF;
+    --border-styleDark: none;
+
+    --primaryBackgroundColorLight:  #F6F8FA;
+    --secondaryBackgroundColorLight: #FFFFFF; 
+    --mainTextColorLight: #1F2A48;
+    --border-styleLight: 1px solid #D0D7DE;
+}
+
+.dark {
+    --bg: var(--primaryBackgroundColorDark);
+    --secondaryBg: var(--secondaryBackgroundColorDark);
+    --textColor: var(--mainTextColorDark);
+    --secondaryTextColor: var(--primaryTextColorDark);
+    --border-style: var(--border-styleDark);
+}
+
+.light {
+    --bg: var(--primaryBackgroundColorLight);
+    --secondaryBg: var(--secondaryBackgroundColorLight);
+    --textColor: var(--mainTextColorLight);
+    --secondaryTextColor: var(--primaryTextColorLight);
+    --border-style: var(--border-styleLight);
 }
 
 *{
@@ -17,11 +40,12 @@
 body {
     width: 100vw;
     height: 100vh;
-    display: grid;
-    place-items: center;
-    background-color: var(--primaryBackgroundColor);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg);
     font-family: "Consolas";
-    
 
 }
 
@@ -41,7 +65,8 @@ body {
     width: 100%;
 }
 .main .container form {
-    background-color: var(--secondaryBackgroundColor);
+    background-color: var(--secondaryBg);
+    border: var(--border-style);
     width: 100%;
     display: flex;
     align-items: center;
@@ -58,7 +83,7 @@ body {
     outline: none;
     border: none;
     width: 300px;
-    color: white;
+    color: var(--textColor);
     font-family: Consolas;
     font-size: 16px;
     margin-left: 10px;
@@ -77,7 +102,8 @@ body {
 }
 
 .main .result {
-    background: var(--secondaryBackgroundColor);
+    background: var(--secondaryBg);
+    border: var(--border-style);
     padding: 25px;
     margin-top: 20px;
     border-radius: 10px;
@@ -131,10 +157,11 @@ body {
     width: max-content;
     font-family: Consolas;
     font-weight: normal;
+    color: var(--textColor);
 }
 
 .main .result .userName a {
-    color: var(--primaryLinkColor);
+    color: var(--primaryLinkColorDark);
     text-decoration: none;
 }
 
@@ -142,19 +169,20 @@ body {
     width: 100%;
     word-wrap:break-word;
     grid-area: userBio;
-    color: var(--primaryTextColor);
+    color: var(--primaryTextColorDark);
 }
 
 .main .result .userJoinedDate{
     grid-area: joinedDate;
     justify-self: end;
 
-    color: var(--primaryTextColor);
+    color: var(--primaryTextColorDark);
 }
 
 .main .result .userProfileInfo{
     grid-area: userProfileInfo;
-    background: var(--primaryBackgroundColor);
+    background: var(--bg);
+    border: var(--border-style);
     display: flex;
     padding: 20px;
     border-radius: 7px;
@@ -163,9 +191,13 @@ body {
     font-size: 1.3rem;
 }
 
+.main .result .userProfileInfo p:nth-child(2){
+    color: var(--textColor);
+}
+
 .main .result .userProfileInfo p:nth-child(1){
     font-size: 1rem;
-    color: var(--primaryTextColor);
+    color: var(--primaryTextColorDark);
     margin-bottom: 4px;
 }
 
@@ -178,17 +210,21 @@ body {
     "otherLink school";
     grid-template-columns: repeat(2, 1fr );
     grid-template-rows: repeat(2, 1fr );
-    color: var(--primaryTextColor);
+    color: var(--primaryTextColorDark);
 }
 .main .result .userLinks a{
     text-decoration: none;
-    color: var(--primaryTextColor);
+    color: var(--primaryTextColorDark);
 }
 
 .main .result .userLinks div .svg {
     margin: 10px;
     display: grid;
     place-items: center;
+}
+
+svg path {
+    fill:var(--textColor) ;
 }
 
 .main .result .userLinks .display{
@@ -200,3 +236,70 @@ body {
     grid-area: link;
     
 }
+
+/* Toggle switch css */
+
+.changeThemeSwitch{
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.changeThemeSwitch p {
+    color: var(--textColor);
+}
+
+/* The switch - the box around the slider */
+.switch {
+    font-size: 17px;
+    position: relative;
+    display: inline-block;
+    width: 3.5em;
+    height: 2em;
+    margin: auto 20px;
+   }
+   
+   /* Hide default HTML checkbox */
+   .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+   }
+   
+   /* The slider */
+   .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 30px;
+   }
+   
+   .slider:before {
+    position: absolute;
+    content: "";
+    height: 1.4em;
+    width: 1.4em;
+    border-radius: 20px;
+    left: 0.3em;
+    bottom: 0.3em;
+    background-color: white;
+    transition: .4s;
+   }
+   
+   input:checked + .slider {
+    background-color: #2196F3;
+   }
+   
+   input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+   }
+   
+   input:checked + .slider:before {
+    transform: translateX(1.5em);
+   }
